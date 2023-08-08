@@ -14,19 +14,18 @@ module.exports = {
       host: "127.0.0.1",
       port: 7545,
       network_id: "*" //Match any network id
-      },
-      kovan: {
-        provider: function() {
+      },      
+      sepolia: {
+        provider: function() {          
           return new HDWalletProvider(
-            privateKeys.split(','),   //Private Key - an Array of account private keys
-           `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`  // Url to an Ethereum Node
-           //`wss://kovan.infura.io/ws/v3/${process.env.INFURA_API_KEY}`
-           )
+          privateKeys.split(','),    
+          `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
+          )
         },
         gas: 5000000,
         gasPrice: 25000000000,
-        network_id: 42
-      }
+        network_id: 11155111
+    },
   },
   contracts_directory: './src/contracts/',
   contracts_build_directory: './src/abis/',
